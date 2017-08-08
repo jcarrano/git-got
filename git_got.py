@@ -1652,7 +1652,7 @@ def fill_local_cache_command(args, repo, origpath):
             print('# %s' % change)
 
 ############################### MAIN ##########################################
-def main(argv):
+def _main(argv):
     loglevel = logging.ERROR
     try:
         (args, loglevel, logformat, remote, help_requested, verbose, force, recurse) = parse_opts(argv)
@@ -1731,7 +1731,10 @@ def main(argv):
             print(str(e))
             return 1
 
+def main():
+    exit(_main(sys.argv))
+
 if __name__ == "__main__":
-    exit(main(sys.argv))
+    main()
 
 # vim: set filetype=python :
